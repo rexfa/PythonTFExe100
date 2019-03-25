@@ -71,3 +71,6 @@ for i in range(2000):
         # show the prediction
         lines= ax.plot(x_data,prediction_value,'r-',lw=5)
         plt.pause(1)
+
+# 使用命令 查询搭建图纸
+# tensorboard --logdir logs
