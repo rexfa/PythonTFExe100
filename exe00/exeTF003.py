@@ -45,13 +45,13 @@ with tf.name_scope('train'):
 # Session
 session = tf.Session()
 
-# writer logs
+# 设置日志目录，命令写图
 writer = tf.summary.FileWriter("logs/",session.graph)
 
 inti = tf.initialize_all_variables()
 session.run(inti)
 
-# draw the real data              
+# 显示真实数据             
 fig1 = plt.figure()
 ax =fig1.add_subplot(1,1,1)
 ax.scatter(x_data,y_data)
@@ -61,6 +61,7 @@ plt.show()
 # train 2000 times
 for i in range(2000):
     session.run(train_step,feed_dict={xs:x_data,ys:y_data})
+    #每隔50次显示一下拟合情况
     if i%50==0:
         try:
             ax.lines.remove(lines[0])
